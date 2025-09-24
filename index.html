@@ -138,12 +138,6 @@
       btn.setAttribute('aria-expanded', String(!open));
     });
 
-    // Simulación de envío de formulario (reemplaza action para producción)
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('¡Gracias! Tu mensaje se ha enviado (demo). Configura un servicio de formularios para producción.');
-      this.reset();
-    });
 
     // Desplazamiento suave
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
