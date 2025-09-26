@@ -79,18 +79,19 @@ nav a:hover { opacity:1; }
 /* Art / mockup */
 .art { border-radius: var(--radius); padding:2px; background: linear-gradient(135deg, rgba(34,211,238,.12), rgba(167,139,250,.08)); }
 .art-inner {
-  border-radius: calc(var(--radius) - 2px);
-  background: linear-gradient(180deg, #0b1220, #0b1220 60%, #0b1220ee);
+  border-radius: 12px;
+  background: #fff;
   min-height: 320px;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: auto; 
 }
 .blob { position:absolute; width:420px; height:420px; border-radius:50%; filter: blur(40px); opacity:.35; }
 .blob.cyan { background: radial-gradient(circle at 30% 30%, var(--accent), transparent 60%); left:-10%; top:-10%; }
 .blob.violet { background: radial-gradient(circle at 70% 70%, var(--accent-2), transparent 60%); right:-10%; bottom:-10%; }
-.hero-img { width:100%; max-width:360px; height:auto; display:block; }
+.hero-img { width:100%; max-width:100%; height:auto; border-radius: 12px; }
 
 /* Features / cards */
 .section { padding:56px 0; }
