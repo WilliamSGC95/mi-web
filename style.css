@@ -103,7 +103,7 @@ nav a:hover { opacity:1; }
       .cards { grid-template-columns: repeat(2, 1fr); } 
 }
 /* Celulares */
-@media (max-width: 6000px) {
+@media (max-width: 600px) {
       .cards { grid-template-columns: 1fr; }
 }
 .card {
