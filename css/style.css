@@ -168,7 +168,7 @@ footer { padding:32px 0; color:var(--muted); }
   .cards { grid-template-columns:(3, 1fr); gap: 16px; }
 /* Tablets */
 @media (max-width:950px) {
-  .cards { grid-template-columns: repeat (2, 1fr); }
+  .cards { grid-template-columns: repeat(2, 1fr); }
 }
 /* Celulares */
 @media (max-width: 600px) {
@@ -202,6 +202,7 @@ html, body {
 /* ======= Corrección: todas las cards con la misma altura ======= */
 
 /* Hace que la grid iguale las filas automáticamente */
+
 
 
 
