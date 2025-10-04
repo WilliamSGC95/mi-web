@@ -13,7 +13,8 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+html, body {overflow-x; hidden; }
+* { max-width: 100%; box-sizing: border-box; }
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
@@ -201,6 +202,7 @@ html, body {
 /* ======= Corrección: todas las cards con la misma altura ======= */
 
 /* Hace que la grid iguale las filas automáticamente */
+
 
 
 
