@@ -17,18 +17,29 @@
         <span class="logo" aria-hidden="true"></span>
         <span>ÑAWI.EC</span>
       </a>
-      <nav aria-label="Principal">
-        <button class="menu-btn" aria-expanded="false" aria-controls="menu-mobile" id="menuToggle">Menú</button>
-        <ul>
-          <li><a href="#servicios">Productos</a></li>
-          <li><a href="#sobre">Sobre mí</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <div class="mobile" id="menu-mobile" role="region" aria-label="Menú móvil">
-        
-        </div>
-      </nav>
-    </div>
+      <!-- Botón menú móvil -->
+    <button  class="menu-btn" aria-expanded="false" aria-controls="menu-mobile" id="menuToggle">
+      ☰ Menú
+    </button>
+
+    <!-- Menú normal (escritorio) -->
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Menú móvil -->
+  <div id="menu-mobile" class="mobile">
+    <a href="#inicio">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros"> Sobre Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </div>
   </header>
 
   <main id="inicio" class="container">
@@ -133,11 +144,10 @@
     const btn = document.getElementById('menuToggle');
     const mobile = document.getElementById('menu-mobile');
     btn?.addEventListener('click', ()=>{
-      const open = mobile.style.display === 'block';
-      mobile.style.display = open ? 'none' : 'block';
+      const open = mobile.classList.contains === 'show';
+      mobile.classList.toggle('show');
       btn.setAttribute('aria-expanded', String(!open));
     });
-
 
     // Desplazamiento suave
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -150,3 +160,4 @@
   </script>
 </body>
 </html>
+
