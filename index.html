@@ -150,16 +150,21 @@
       btn.setAttribute('aria-expanded', String(!open));
     });
 
-// Mostrar / ocultar menú móvil
+ // Estado del menú (abierto o cerrado)
+  let menuAbierto = false;
+
+  // Alternar menú al hacer clic en el botón
   btn?.addEventListener('click', () => {
-    const isOpen = mobile.style.display === 'block';
-    mobile.style.display = isOpen ? 'none' : 'block';
-    btn.setAttribute('aria-expanded', String(!isOpen));
-  });    
-    // 🔹 Nuevo: cerrar el menú al hacer clic en una opción
+    menuAbierto = !menuAbierto;
+    mobile.style.display = menuAbierto ? 'block' : 'none';
+    btn.setAttribute('aria-expanded', String(menuAbierto));
+  });
+
+  // Cerrar el menú al hacer clic en cualquier enlace
   const links = mobile.querySelectorAll('a');
   links.forEach(link => {
     link.addEventListener('click', () => {
+      menuAbierto = false;
       mobile.style.display = 'none';
       btn.setAttribute('aria-expanded', 'false');
     });
@@ -176,6 +181,7 @@
   </script>
 </body>
 </html>
+
 
 
 
