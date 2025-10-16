@@ -74,7 +74,11 @@ nav a:hover { opacity:1; }
   border: none;
   font-weight: 700;
 }
-
+#menuToggle {
+ font-size: 14px;
+ padding: 8px 14px;
+ border-radius: 6px;
+}
 /* Art / mockup */
 .art { border-radius: var(--radius); padding:2px; background: linear-gradient(135deg, rgba(34,211,238,.12), rgba(167,139,250,.08)); }
 .art-inner {
@@ -321,6 +325,7 @@ nav a:hover {
     display: inline-block;
   }
 }
+
 
 
 
