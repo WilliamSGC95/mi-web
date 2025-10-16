@@ -150,6 +150,21 @@
       btn.setAttribute('aria-expanded', String(!open));
     });
 
+// Mostrar / ocultar menú móvil
+  btn?.addEventListener('click', () => {
+    const isOpen = mobile.style.display === 'block';
+    mobile.style.display = isOpen ? 'none' : 'block';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });    
+    // 🔹 Nuevo: cerrar el menú al hacer clic en una opción
+  const links = mobile.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      mobile.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
     // Desplazamiento suave
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
@@ -161,6 +176,7 @@
   </script>
 </body>
 </html>
+
 
 
 
