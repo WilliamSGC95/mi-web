@@ -138,74 +138,54 @@
   </footer>
 
   <script>
-    // Año dinámico en el footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+  // Año dinámico en el footer
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Menú móvil
-    const btn = document.getElementById('menuToggle');
-    const mobile = document.getElementById('menu-mobile');
-    btn?.addEventListener('click', ()=>{
-      const open = mobile.classList.contains === 'show';
-      mobile.classList.toggle('show');
-      btn.setAttribute('aria-expanded', String(!open));
-    });
+  // --- MENÚ MÓVIL ---
+  const btn = document.getElementById('menuToggle');
+  const mobile = document.getElementById('menu-mobile');
+  let abierto = false;
 
- // Estado del menú (abierto o cerrado)
-  let menuAbierto = false;
-
-    // Función para mostrar u ocultar el menú
-  function toggleMenu() {
-    menuAbierto = !menuAbierto;
-    mobile.classList.toggle('show', menuAbierto);
-  }
-    // Escucha al botón
-  btn?.addEventListener('click', toggleMenu);
-
-  // Escucha a los enlaces del menú móvil
-  const links = mobile.querySelectorAll('a');
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      // Cierra el menú y re-habilita el botón
-      menuAbierto = false;
-      mobile.classList.remove('show');
-    });
+  // Mostrar / ocultar menú al presionar el botón
+  btn.addEventListener('click', () => {
+    abierto = !abierto;
+    mobile.classList.toggle('show', abierto);
+    btn.setAttribute('aria-expanded', abierto);
   });
 
-  // Prevención de errores si el usuario cambia el tamaño de la ventana
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 950) {
-      mobile.classList.remove('show');
-      menuAbierto = false;
-    }
-  }); 
-  // Alternar menú al hacer clic en el botón
-  btn?.addEventListener('click', () => {
-    menuAbierto = !menuAbierto;
-    mobile.style.display = menuAbierto ? 'block' : 'none';
-    btn.setAttribute('aria-expanded', String(menuAbierto));
-  });
-
-  // Cerrar el menú al hacer clic en cualquier enlace
-  const links = mobile.querySelectorAll('a');
-  links.forEach(link => {
+  // Cerrar el menú al hacer clic en un enlace
+  mobile.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      menuAbierto = false;
-      mobile.style.display = 'none';
+      abierto = false;
+      mobile.classList.remove('show');
       btn.setAttribute('aria-expanded', 'false');
     });
   });
 
-    // Desplazamiento suave
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        const el = document.querySelector(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
+  // Si se agranda la ventana (por ejemplo, pasar de móvil a escritorio), ocultar menú
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 950) {
+      abierto = false;
+      mobile.classList.remove('show');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Desplazamiento suave entre secciones
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
-  </script>
+  });
+</script>
 </body>
 </html>
+
 
 
 
