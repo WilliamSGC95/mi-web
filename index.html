@@ -153,6 +153,31 @@
  // Estado del menú (abierto o cerrado)
   let menuAbierto = false;
 
+    // Función para mostrar u ocultar el menú
+  function toggleMenu() {
+    menuAbierto = !menuAbierto;
+    mobile.classList.toggle('show', menuAbierto);
+  }
+    // Escucha al botón
+  btn?.addEventListener('click', toggleMenu);
+
+  // Escucha a los enlaces del menú móvil
+  const links = mobile.querySelectorAll('a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      // Cierra el menú y re-habilita el botón
+      menuAbierto = false;
+      mobile.classList.remove('show');
+    });
+  });
+
+  // Prevención de errores si el usuario cambia el tamaño de la ventana
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 950) {
+      mobile.classList.remove('show');
+      menuAbierto = false;
+    }
+  }); 
   // Alternar menú al hacer clic en el botón
   btn?.addEventListener('click', () => {
     menuAbierto = !menuAbierto;
@@ -181,6 +206,7 @@
   </script>
 </body>
 </html>
+
 
 
 
