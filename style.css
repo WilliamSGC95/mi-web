@@ -160,39 +160,8 @@ footer { padding:32px 0; color:var(--muted); }
   .mobile a { display:block; padding:10px 0; }
 
 }
-.card {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: start;
-  gap: 10px;
-}
 
-.card img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 
-.precio-box {
-  text-align: right;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.precio-normal {
-  font-size: 0.9rem;
-  color: #777;
-  text-decoration: line-through;
-}
-
-.precio-oferta {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #2ea542; /* verde premium natural */
-}
 
 
 
